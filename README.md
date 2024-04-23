@@ -1,6 +1,6 @@
 # RansomWatch RSS Feed Generator
 
-[RSS Link:📶(https://ransom.lexter.xyz/feed.xml)](https://ransom.lexter.xyz/feed.xml)
+📰 RSS Link:  [https://ransom.lexter.xyz/feed.xml](https://ransom.lexter.xyz/feed.xml)
 
 This repository contains a Python script, `generate_feed.py`, that generates an Atom XML feed for the latest ransomware attacks, based on data from [joshhighet/ransomwatch](https://github.com/joshhighet/ransomwatch).
 As RansomWatch does not currently offer a live RSS feed, this script provides an alternative solution.
