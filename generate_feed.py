@@ -21,7 +21,7 @@ def generate_rss_feed(json_data, output_file):
     channel = ET.SubElement(rss, 'channel')
 
     # Set the channel elements
-    ET.SubElement(channel, 'title').text = 'RansomWatch Posts'
+    ET.SubElement(channel, 'title').text = 'RansomWatch'
     ET.SubElement(channel, 'link').text = 'https://ransomwatch.telemetry.ltd/#/recentposts'
     ET.SubElement(channel, 'description').text = 'Latest ransomware posts'
 
