@@ -37,6 +37,10 @@ def generate_rss_feed(json_data, output_file):
         ET.SubElement(item_element, 'description').text = f'Group: {group_name}'
         ET.SubElement(item_element, 'pubDate').text = discovered.strftime('%a, %d %b %Y %H:%M:%S +0000')
         ET.SubElement(item_element, 'guid').text = f'{post_title}_{discovered}'
+        
+        # Add the desired link structure for each post
+        link_url = f'https://ransomwatch.telemetry.ltd/#/profiles?id={group_name}'
+        ET.SubElement(item_element, 'link').text = link_url
 
     # Generate the RSS feed XML
     tree = ET.ElementTree(rss)
