@@ -1,0 +1,40 @@
+name: Generate Ransomware Feed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'  # Run every 30 minutes
+
+jobs:
+  generate_feed:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.x
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+        pip install feedgen
+    - name: Run script
+      run: python generate_feed.py
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+        git config --global user.name "${{ secrets.GIT_USER_NAME }}"
+        git add feed.xml
+        if [[ -n "$(git status --porcelain)" ]]; then
+          git commit -m "Update ransomware feed"
+          git pull --rebase  # Pull the latest changes before pushing
+          git push
+        fi
