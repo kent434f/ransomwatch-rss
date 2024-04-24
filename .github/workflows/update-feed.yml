@@ -36,5 +36,7 @@ jobs:
           git config --global user.name "${{ secrets.GIT_USER_NAME }}"
           git add feed.xml
           git diff-index --quiet HEAD || git commit -m "Update ransomware feed"
+          git stash save --keep-index --include-untracked
           git pull --rebase origin main
+          git stash pop
           git push origin main
