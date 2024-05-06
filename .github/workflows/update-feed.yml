@@ -3,7 +3,7 @@ name: Generate Ransomware Feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *" # Run every 30 minutes
+    - cron: "0 0 * * *"  # Run every day at midnight (00:00)
 
 jobs:
   generate_feed:
