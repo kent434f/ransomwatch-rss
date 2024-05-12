@@ -16,7 +16,7 @@ The `generate_feed.py` script performs the following tasks:
 3. Generates an Atom XML feed containing the processed data.
 4. Saves the generated XML feed to a file named `feed.xml`.
 
-The script is automatically run every 30 minutes using a GitHub Actions workflow defined in `.github/workflows/update_feed.yml`.
+The script is automatically run every 24 hours using a GitHub Actions workflow defined in `.github/workflows/update_feed.yml`.
 
 ## Repository Structure
 
@@ -38,7 +38,7 @@ The generated `feed.xml` file will be created in the same directory as the scrip
 
 ## Automation
 
-The repository includes a GitHub Actions workflow that automates the process of generating the ransomware feed and updating the repository every 30 minutes. The workflow is defined in `.github/workflows/update_feed.yml`.
+The repository includes a GitHub Actions workflow that automates the process of generating the ransomware feed and updating the repository every 24 hours. The workflow is defined in `.github/workflows/update_feed.yml`.
 
 The workflow performs the following steps:
 
